@@ -10,8 +10,8 @@ from .models import *
 from .forms import GlobalConfigForm
 from .resources import * 
 
-from box.core.sw_solo.admin import SingletonModelAdmin
-from box.core.utils import AdminImageWidget
+from sw_utils.sw_solo.admin import SingletonModelAdmin
+from sw_utils.utils import AdminImageWidget
 
 
 class SeoScriptInline(admin.TabularInline):

@@ -3,13 +3,13 @@ from django.db import models
 from django.conf import settings 
 from django.core.exceptions import ValidationError
 
-from box.core import settings as core_settings 
-from box.core.sw_solo.models import SingletonModel
+from sw_utils import settings as core_settings 
+from sw_utils.sw_solo.models import SingletonModel
 from . import settings as sw_global_config_settings 
 
 from tinymce import HTMLField
 from colorfield.fields import ColorField
-from box.core.models import AbstractRecipientEmail
+from sw_utils.models import AbstractRecipientEmail
 
 
 class GlobalRecipientEmail(AbstractRecipientEmail):
