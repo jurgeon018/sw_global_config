@@ -133,23 +133,24 @@ class GlobalConfig(SingletonModel):
   )
   robots = models.CharField(
     verbose_name=_("Meta Robots"), max_length=255, blank=True, null=True,
-    choices=ROBOTS_VARS, default=sw_global_config_settings.META_ROBOTS
+    choices=ROBOTS_VARS,
+    default=sw_global_config_settings.META_ROBOTS
   )
   robots_txt = models.TextField(verbose_name=_('robots.txt'), blank=True, null=True)
   favicon  = models.ImageField(
     verbose_name=_("Фавікон сайту"), blank=True, null=True, upload_to='favicon', 
     help_text=_("Допустимі розширення зображень png, gif, jpg, jpeg, ico"), 
-    default=sw_global_config_settings.FAVICON
+    # default=sw_global_config_settings.FAVICON
   )
   og_image_square    = models.ImageField(
     verbose_name=_("og:image квадрат"),     
     blank=True, null=True, upload_to='ogimage',
-    default=sw_global_config_settings.OGIMAGE_SQUARE,
+    # default=sw_global_config_settings.OGIMAGE_SQUARE,
   )
   og_image_rectangle = models.ImageField(
     verbose_name=_("og:image прямокутник"), 
     blank=True, null=True, upload_to='ogimage',
-    default=sw_global_config_settings.OGIMAGE_RECTANGLE,
+    # default=sw_global_config_settings.OGIMAGE_RECTANGLE,
   )
 
   @property
@@ -166,31 +167,31 @@ class GlobalConfig(SingletonModel):
       blank = True, null = True,
       max_length = 256, verbose_name = _("EMAIL_HOST"),
       help_text=_("Сервер"), 
-      default=settings.EMAIL_HOST,
+      # default=settings.EMAIL_HOST,
   )
   port = models.SmallIntegerField(
       blank = True, null = True,
       verbose_name = _("EMAIL_PORT"),
       help_text=_("Порт"), 
-      default=settings.EMAIL_PORT,
+      # default=settings.EMAIL_PORT,
   )
   from_email = models.CharField(
       blank = True, null = True,
       max_length = 256, verbose_name = _("DEFAULT_FROM_EMAIL"),
       help_text=_("Почта відправки листів"), 
-      default=settings.DEFAULT_FROM_EMAIL,
+      # default=settings.DEFAULT_FROM_EMAIL,
   )
   username = models.CharField(
       blank = True, null = True,
       max_length = 256, verbose_name = _("EMAIL_HOST_USER"),
       help_text=_("Логін"), 
-      default=settings.EMAIL_HOST_USER,
+      # default=settings.EMAIL_HOST_USER,
   )
   password = models.CharField(
       blank = True, null = True,
       max_length = 256, verbose_name = _("EMAIL_HOST_PASSWORD"),
       help_text=_("Пароль"), 
-      default=settings.EMAIL_HOST_PASSWORD,
+      # default=settings.EMAIL_HOST_PASSWORD,
   )
   use_tls = models.BooleanField(
       verbose_name = _("EMAIL_USE_TLS"),
@@ -203,7 +204,8 @@ class GlobalConfig(SingletonModel):
       default=settings.EMAIL_USE_SSL,
   )
   fail_silently = models.BooleanField(
-      default = False, verbose_name = _("fail_silently"),
+      default = False, 
+      verbose_name = _("fail_silently"),
       help_text=_("Помилка при невдалій відправці")
   )
   timeout = models.SmallIntegerField(
